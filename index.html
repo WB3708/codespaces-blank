@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy Search</title>
+</head>
+<body>
+  <label for="searchInput">Enter your search:</label>
+  <input type="text" id="searchInput" placeholder="Type here">
+  <button onclick="searchGoogle()">Search</button>
+
+  <script>
+    function searchGoogle() {
+  const searchTerm = document.getElementById('searchInput').value;
+  // Make a request to the back-end with the search term
+  fetch(`https://stunning-fortnight-6jv75wr6pvgc5vrp-3000.app.github.dev/search?q=${encodeURIComponent(searchTerm)}`)
+    .then(response => response.text())
+    .then(result => {
+      // Display the result or handle as needed
+      console.log(result);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+  </script>
+</body>
+</html>
